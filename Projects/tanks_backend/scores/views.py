@@ -18,8 +18,8 @@ def get_scores(request):
                 'user': score.user,
                 'level': score.level,
                 'seconds_survived': score.seconds_survived,
-                'missles_fired': score.missles_fired,
-                'tanks_destoryed': score.tanks_destroyed
+                'missiles_fired': score.missiles_fired,
+                'tanks_destroyed': score.tanks_destroyed
             })
         return JsonResponse(scores_list, safe=False)
     except Exception as e:
@@ -29,17 +29,16 @@ def get_scores(request):
 def post_score(request):
     try:
         data = json.loads(request.body)
-        print(data)
         user = data['user']
         level = data['level']
         seconds_survived = data['seconds_survived']
-        missles_fired = data['missles_fired']
+        missiles_fired = data['missiles_fired']
         tanks_destroyed = data['tanks_destroyed']
         score = Scores(
             user=user,
             level = level,
             seconds_survived = seconds_survived,
-            missles_fired = missles_fired,
+            missiles_fired = missiles_fired,
             tanks_destroyed =  tanks_destroyed
             )
         score.save()

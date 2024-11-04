@@ -7,4 +7,4 @@ class Scores(models.Model):
     level = models.IntegerField()
     tanks_destroyed = models.IntegerField()
     seconds_survived = models.IntegerField()
-    missles_fired = models.IntegerField()
+    missiles_fired = models.IntegerField()
